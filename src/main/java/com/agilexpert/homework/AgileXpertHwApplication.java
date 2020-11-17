@@ -1,4 +1,4 @@
-package com.agilexperthw.agilexperthw;
+package com.agilexpert.homework;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

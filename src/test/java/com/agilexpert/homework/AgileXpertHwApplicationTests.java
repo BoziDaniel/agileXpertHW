@@ -1,4 +1,4 @@
-package com.agilexperthw.agilexperthw;
+package com.agilexpert.homework;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
