@@ -1,14 +1,10 @@
 package com.agilexpert.homework.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +12,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @GeneratedValue
     @Id
     private Long id;
@@ -25,4 +22,8 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @Singular
+    @ManyToMany
+    private List<Application> applications = new ArrayList<>();
 }

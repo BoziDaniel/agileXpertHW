@@ -1,14 +1,10 @@
 package com.agilexpert.homework.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -26,6 +22,10 @@ public class Application {
 
     private boolean isRunning = false;
 
+    @ManyToMany(mappedBy = "applications", cascade = CascadeType.PERSIST)
+    @ToString.Exclude
+    private List<User> users = new ArrayList<>();
+
     public void startApplication() {
         setRunning(true);
         System.out.println(String.format("%s is running", this.name));
@@ -35,4 +35,5 @@ public class Application {
         setRunning(false);
         System.out.println(String.format("%s stops", this.name));
     }
+
 }
