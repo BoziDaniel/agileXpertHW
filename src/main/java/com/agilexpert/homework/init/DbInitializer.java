@@ -1,8 +1,10 @@
 package com.agilexpert.homework.init;
 
 import com.agilexpert.homework.entity.Application;
+import com.agilexpert.homework.entity.Icon;
 import com.agilexpert.homework.entity.User;
 import com.agilexpert.homework.repository.ApplicationRepository;
+import com.agilexpert.homework.repository.IconRepository;
 import com.agilexpert.homework.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,17 +13,43 @@ import org.springframework.stereotype.Component;
 public class DbInitializer {
     private UserRepository userRepository;
     private ApplicationRepository applicationRepository;
+    private IconRepository iconRepository;
+
     @Autowired
-    public DbInitializer(UserRepository userRepository, ApplicationRepository applicationRepository) {
+    public DbInitializer(UserRepository userRepository, ApplicationRepository applicationRepository, IconRepository iconRepository) {
         this.userRepository = userRepository;
         this.applicationRepository = applicationRepository;
+        this.iconRepository = iconRepository;
     }
-    public void intializeDatabase() {
 
-        Application gpsApp = Application.builder().name("gpsApp").build();
-        Application gameApp1 = Application.builder().name("gameApp1").build();
-        Application gameApp2 = Application.builder().name("gameApp2").build();
-        Application recipeApp= Application.builder().name("recipeApp").build();
+    public void intializeDatabase() {
+        Icon gpsIcon = Icon.builder().build();
+        Icon game1Icon = Icon.builder().build();
+        Icon game2Icon = Icon.builder().build();
+        Icon recipeIcon = Icon.builder().build();
+
+        iconRepository.save(gpsIcon);
+        iconRepository.save(game1Icon);
+        iconRepository.save(game2Icon);
+        iconRepository.save(recipeIcon);
+
+        Application gpsApp = Application.builder()
+                .name("gpsApp")
+                .icon(gpsIcon)
+                .build();
+        Application gameApp1 = Application.builder()
+                .name("gameApp1")
+                .icon(game1Icon)
+                .build();
+        Application gameApp2 = Application.builder()
+                .name("gameApp2")
+                .icon(game2Icon)
+                .build();
+        Application recipeApp = Application.builder()
+                .name("recipeApp")
+                .icon(recipeIcon)
+                .build();
+
         applicationRepository.save(gpsApp);
         applicationRepository.save(gameApp1);
         applicationRepository.save(gameApp2);

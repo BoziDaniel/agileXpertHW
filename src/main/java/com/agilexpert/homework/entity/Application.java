@@ -26,6 +26,9 @@ public class Application {
     @ToString.Exclude
     private List<User> users = new ArrayList<>();
 
+    @OneToOne
+    Icon icon;
+
     public void startApplication() {
         setRunning(true);
         System.out.println(String.format("%s is running", this.name));
