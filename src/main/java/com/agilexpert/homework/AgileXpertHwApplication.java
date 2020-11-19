@@ -1,6 +1,6 @@
 package com.agilexpert.homework;
 
-import com.agilexpert.homework.init.DbInitializer;
+import com.agilexpert.homework.simulation.Simulation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,14 +14,14 @@ public class AgileXpertHwApplication {
     public static void main(String[] args) {
         SpringApplication.run(AgileXpertHwApplication.class, args);
     }
-    @Autowired
-    DbInitializer dbInitializer;
 
+    @Autowired
+    Simulation simulation;
     @Bean
     @Profile("dev")
     public CommandLineRunner init() {
         return args -> {
-            dbInitializer.intializeDatabase();
+            simulation.runSimulation();
         };
     }
 }
