@@ -18,7 +18,7 @@ public class Application {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String name;
+    private String appName;
 
     private boolean isRunning = false;
 
@@ -31,12 +31,12 @@ public class Application {
 
     public void startApplication() {
         setRunning(true);
-        System.out.println(String.format("%s is running", this.name));
+        System.out.println(String.format("%s is running", this.appName));
     }
 
     public void stopApplication() {
         setRunning(false);
-        System.out.println(String.format("%s stops", this.name));
+        System.out.println(String.format("%s stops", this.appName));
     }
 
 }

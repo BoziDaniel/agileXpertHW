@@ -23,4 +23,10 @@ public class User {
     @Singular
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Application> applications = new ArrayList<>();
+
+    public void addNewApplication(Application application) {
+        if (!applications.contains(application)) {
+            applications.add(application);
+        }
+    }
 }

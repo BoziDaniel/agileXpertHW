@@ -34,19 +34,19 @@ public class DbInitializer {
         iconRepository.save(recipeIcon);
 
         Application gpsApp = Application.builder()
-                .name("gpsApp")
+                .appName("gpsApp")
                 .icon(gpsIcon)
                 .build();
         Application gameApp1 = Application.builder()
-                .name("gameApp1")
+                .appName("gameApp1")
                 .icon(game1Icon)
                 .build();
         Application gameApp2 = Application.builder()
-                .name("gameApp2")
+                .appName("gameApp2")
                 .icon(game2Icon)
                 .build();
         Application recipeApp = Application.builder()
-                .name("recipeApp")
+                .appName("recipeApp")
                 .icon(recipeIcon)
                 .build();
 
@@ -72,11 +72,10 @@ public class DbInitializer {
                 .application(gameApp1)
                 .application(gameApp2)
                 .build();
+
         userRepository.save(father);
         userRepository.save(mother);
         userRepository.save(kid1);
         userRepository.save(kid2);
-        System.out.println(father);
-        System.out.println(mother);
     }
 }

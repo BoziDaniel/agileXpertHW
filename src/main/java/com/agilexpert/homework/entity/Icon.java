@@ -1,9 +1,6 @@
 package com.agilexpert.homework.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -18,6 +15,7 @@ public class Icon {
     @Id
     private Long id;
 
+    @ToString.Exclude
     @OneToOne(mappedBy = "icon")
     Application application;
 }
