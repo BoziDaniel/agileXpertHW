@@ -16,6 +16,8 @@ public class Simulation {
     public void runSimulation() {
         dbInitializer.intializeDatabase();
         registerUser("son");
+        deleteUser("son");
+
     }
 
     public void registerUser(String username) {
@@ -28,5 +30,12 @@ public class Simulation {
         }
     }
 
-
+    public void deleteUser(String username) {
+        if (userRepository.findUserByUsername(username) != null) {
+            userRepository.deleteByUsername(username);
+            System.out.println(String.format("user deleted with username: %s", username));
+        } else {
+            System.out.println("user not found");
+        }
     }
+}
