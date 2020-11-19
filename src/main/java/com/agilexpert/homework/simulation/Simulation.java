@@ -23,6 +23,8 @@ public class Simulation {
         deleteUser("son");
         registerUser("brother");
         addApplicationToUser("brother", "gpsApp");
+        User brother = userRepository.findUserByUsername("brother");
+        brother.getApplications().get(0).startApplication();
     }
 
     public void registerUser(String username) {
@@ -52,6 +54,8 @@ public class Simulation {
             user.addNewApplication(application);
             userRepository.save(user);
             System.out.println(String.format("user modified, user is now: %s", user.toString()));
+        } else {
+            System.out.println("user not found or application not installed");
         }
 
     }
