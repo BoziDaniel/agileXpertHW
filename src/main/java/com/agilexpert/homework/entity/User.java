@@ -21,6 +21,6 @@ public class User {
     private String username;
 
     @Singular
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Application> applications = new ArrayList<>();
 }
