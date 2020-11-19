@@ -1,5 +1,6 @@
 package com.agilexpert.homework.simulation;
 
+import com.agilexpert.homework.entity.User;
 import com.agilexpert.homework.init.DbInitializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,4 +12,6 @@ public class Simulation {
     public void runSimulation() {
         dbInitializer.intializeDatabase();
     }
+
+
 }

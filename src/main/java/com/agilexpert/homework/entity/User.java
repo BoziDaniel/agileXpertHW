@@ -20,9 +20,6 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
     @Singular
     @ManyToMany
     private List<Application> applications = new ArrayList<>();
